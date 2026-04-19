@@ -57,8 +57,14 @@ public class DeveloperDepartment_2 {
 		employeeList.stream().sorted((e1, e2) -> Double.compare(e1.salary, e2.salary)).forEach(System.out::println);
 		
 		// Second highest salary of employee.
-		Employee_2 secondHighest = employeeList.stream().sorted((e1, e2) -> Double.compare(e2.salary, e1.salary)).skip(1).findFirst().get();
+		Employee_2 secondHighest = employeeList.stream().sorted((e1, e2) -> Double.compare(e2.salary, e1.salary)).skip(1).findFirst().get();
+
 		System.err.println("\nEmployee which have second highest salary :- ");
 		System.out.println(secondHighest);
+
+		// Get Top 3 highest paid employees list
+		List<Employee_2> list = employeeList.stream().sorted((e1 , e2) -> Double.compare(e2.salary, e2.salary)).limit(3).collect(Collectors.toList());
+		System.err.println("\nGet Top 3 Highest Paid Employees :- ");
+		System.out.println(list);
 	}
 }
